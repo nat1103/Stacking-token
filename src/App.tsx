@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Navigation from "./components/Navigation";
+import Approve from "./web3/Approve";
+import Balance from "./web3/Balance";
+import Stacking from "./web3/Stacking";
+import Transfert from "./web3/Transfert";
+import Wagmi from "./web3/Wagmi";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main className="dark:bg-stone-900 pb-2">
+      <Wagmi>
+        <Navigation />
+        <section className="dark:bg-stone-800 w-11/12 ml-auto p-2 mr-2 rounded-xl h-[90vh]">
+          <header className="flex gap-2 flex-wrap">
+        <Transfert />
+        <Approve />
+        <Stacking />
+          </header>
+        <Balance />
+        </section>
+      </Wagmi>
+    </main>
+  );
 }
 
-export default App
+export default App;
