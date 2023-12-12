@@ -11,10 +11,8 @@ const Balance = () => {
     ],
     })
   return (
-    <Card title="Balance" className='mt-4 bg-black w-56'>
-        <div className="flex flex-col text-slate-50">
-            <p className="text-slate-50">{convertBigIntToNumber(data)} FMY</p>
-        </div>
+    <Card title="Balance">
+            <p className="text-slate-50 text-xl text-center">{convertBigIntToNumber(data)} FMY</p>
     </Card>
   )
 }

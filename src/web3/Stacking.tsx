@@ -13,8 +13,8 @@ const Stacking = () => {
     args: [convertNumberToBigInt(amount)],
   });
   return(
-    <Card title="Stacking transaction" className="bg-secondary">
-      <div className="flex flex-col ">
+    <Card title="Stacking transaction">
+      <div className="flex flex-col">
         <label className="text-slate-50">Amount</label>
         <Input
           type="text"
@@ -23,7 +23,7 @@ const Stacking = () => {
         />
       </div>
       <Button
-        disabled={!write || !amount}
+        disabled={!write || (!amount && amount <= 0)}
         onClick={() => write()}
       >
         Stake

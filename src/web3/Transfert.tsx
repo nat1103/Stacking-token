@@ -10,7 +10,8 @@ import Card from "../components/Card";
 const Transfert = () => {
   const [address, setAddress] = useState("");
   const [amount, setAmount] = useState<number>(0);
-  const { write} = useStackingTransfer({
+  const [error, setError] = useState<string>("");
+  const { write } = useStackingTransfer({
     args: [
       address as Address,
       convertNumberToBigInt(amount),
@@ -19,11 +20,18 @@ const Transfert = () => {
 
 
   const handleOnClick = () => {
+    if (checkAddress(address) && amount > 0  && write) {
+      write();
+    }else{
+      setError("Invalid address");
+      amount <= 0 && setError("Invalid amount");
+    }
     checkAddress(address) && write();
+
   };
 
   return (
-    <Card className="bg-quaternary" title="Transfer Your Token">
+    <Card title="Transfer Your Token">
         <div className="flex flex-col">
           <label className="text-slate-50">Address</label>
           <Input
@@ -46,6 +54,7 @@ const Transfert = () => {
         >
           Transfer
         </Button>
+        {error && <div className="text-red-500">{error}</div>}
     </Card>
   );
 };

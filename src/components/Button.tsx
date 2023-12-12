@@ -7,7 +7,7 @@ const Button: FC<ButtonProps> = ({ className, ...props }) => {
   return (
     <button
       className={clsxm(
-        "py-1 px-2 border  rounded-lg bg-quaternary text-white disabled:bg-slate-400 disabled:border-slate-200",
+        "py-1 px-2 rounded-lg bg-black text-white disabled:bg-neutral-400 hover:bg-neutral-800 active:bg-indigo-700",
         className
       )}
       {...props}
